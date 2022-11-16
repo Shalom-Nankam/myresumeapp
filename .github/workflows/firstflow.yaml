@@ -30,7 +30,7 @@ jobs:
       
       - name: Change our app ID
         working directory: ${{ github.workspace }}
-        run: flutter pub run change_app_package_name:main com.broke
+        run: flutter pub run change_app_package_name:main  com.broke
 
       - name: Build the app
         working-directory: ${{ github.workspace }}
