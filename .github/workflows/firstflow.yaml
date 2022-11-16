@@ -46,5 +46,7 @@ jobs:
       - name: Download artifacts
         uses: actions/download-artifact@v3
         with:
-          name: final apk
-          path: ~/desktop
+          name: release-apk
+      
+      - name: Test Artifact download
+        run: ls -R
