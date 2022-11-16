@@ -1,0 +1,5 @@
+name: initialize_my _app
+run-name: initializer of app before build
+on: push
+jobs: 
+  
