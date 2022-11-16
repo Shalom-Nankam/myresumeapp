@@ -41,7 +41,7 @@ class Footer extends StatelessWidget {
                 child: CustomText(
                     text:
                         changeTheme.darkTheme ? 'switch_light' : 'switch_dark',
-                    size: isPortrait ? 16 : 24,
+                    size: isPortrait ? 17 : 24,
                     color: Colors.white,
                     weight: FontWeight.w700),
               ),
