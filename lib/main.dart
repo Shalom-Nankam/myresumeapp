@@ -15,7 +15,7 @@ void main() async {
     providers: [
       ChangeNotifierProvider<ThemeProvider>(create: (_) => ThemeProvider()),
       ChangeNotifierProvider<LanguageProvider>(
-          create: (_) => LanguageProvider()),
+          create: (_) => LanguageProvider())
     ],
     child: EasyLocalization(
         supportedLocales: const [Locale('en'), Locale('fr')],
