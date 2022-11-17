@@ -3,6 +3,9 @@ on:
   push:
     branches:
       - main
+
+env:
+  myAppName: Rich
 jobs:
   build-apk: 
     runs-on: macos-latest
@@ -30,11 +33,11 @@ jobs:
       
       - name: Change our app ID
         working-directory: ${{ github.workspace }}
-        run: flutter pub run change_app_package_name:main  com.broke
+        run: flutter pub run change_app_package_name:main  com.$myAppName
 
       - name: Build the app
         working-directory: ${{ github.workspace }}
-        run: flutter build apk --dart-define=myAppName=Broke
+        run: flutter build apk --dart-define=myAppName=$myAppName
 
       - name: Upload artifacts to Github
         uses: actions/upload-artifact@v2
