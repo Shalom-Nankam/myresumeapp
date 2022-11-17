@@ -5,10 +5,10 @@ on:
       - main
 
 env:
-  myAppName: Rich
+  MY_APP_NAME: Rich
 jobs:
   build-apk: 
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
       - name: checkout code
         uses: actions/checkout@v2
@@ -33,11 +33,11 @@ jobs:
       
       - name: Change our app ID
         working-directory: ${{ github.workspace }}
-        run: flutter pub run change_app_package_name:main  com.$myAppName
+        run: flutter pub run change_app_package_name:main  com.$MY_APP_NAME
 
       - name: Build the app
         working-directory: ${{ github.workspace }}
-        run: flutter build apk --dart-define=myAppName=$myAppName
+        run: flutter build apk --dart-define=myAppName=$MY_APP_NAME
 
       - name: Upload artifacts to Github
         uses: actions/upload-artifact@v2
