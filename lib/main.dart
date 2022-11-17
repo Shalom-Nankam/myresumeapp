@@ -6,6 +6,7 @@ import 'package:my_resume_app/providers/language_provider.dart';
 import 'package:my_resume_app/providers/theme_provider.dart';
 import 'package:my_resume_app/views/splash_screen.dart';
 import 'package:provider/provider.dart';
+import 'package:change_app_package_name/change_app_package_name.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
