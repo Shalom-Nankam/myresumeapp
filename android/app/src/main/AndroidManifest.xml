@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.my_resume_app">
+    package="com.new.package.name">
     <queries>
         <intent>
             <action android:name="android.intent.action.VIEW" />
