@@ -14,37 +14,37 @@ jobs:
       - name: checkout code
         uses: actions/checkout@v2
       
-      - name: Setup java
-        uses: actions/setup-java@v1
-        with: 
-          java-version: 12.x
+      # - name: Setup java
+      #   uses: actions/setup-java@v1
+      #   with: 
+      #     java-version: 12.x
 
-      - name: Get Flutter
-        uses: subosito/flutter-action@v2
-        with:
-          flutter-version: '3.3.7'
+      # - name: Get Flutter
+      #   uses: subosito/flutter-action@v2
+      #   with:
+      #     flutter-version: '3.3.7'
 
-      - name: Install Android gems
-        working-directory: ${{ github.workspace }}/android
-        run: bundle install
+      # - name: Install Android gems
+      #   working-directory: ${{ github.workspace }}/android
+      #   run: bundle install
       
       - name: Install dependencies
-        working-directory: ${{ github.workspace }}
+        # working-directory: ${{ github.workspace }}
         run: flutter pub get
       
       - name: Change our app ID
-        working-directory: ${{ github.workspace }}
+        # working-directory: ${{ github.workspace }}
         run: flutter pub run change_app_package_name:main com.$MY_APP_NAME
 
       - name: Build the app
-        working-directory: ${{ github.workspace }}
+        # working-directory: ${{ github.workspace }}
         run: flutter build apk --dart-define=myAppName=$MY_APP_NAME
 
       - name: Upload artifacts to Github
         uses: actions/upload-artifact@v2
         with:
-          name: release-apk
-          path: build/app/outputs/apk/release/app-release.apk
+          name: final-apk
+          path: build/app/outputs/apk/release/final-release.apk
 
   get-artifacts:
     name: Download our apk
