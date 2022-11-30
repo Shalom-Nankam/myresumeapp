@@ -5,7 +5,7 @@ on:
       - main
 
 env:
-  MY_APP_NAME: Hover
+  MY_APP_NAME: Happy
 
 jobs:
   build-apk: 
