@@ -9,7 +9,7 @@ env:
 
 jobs:
   build-apk: 
-    runs-on: [self-hosted, macOs]
+    runs-on: self-hosted
     steps:
       - name: checkout code
         uses: actions/checkout@v2
