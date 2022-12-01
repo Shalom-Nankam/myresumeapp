@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:my_resume_app/models/app_themer.dart';
 import 'package:my_resume_app/providers/theme_provider.dart';
 import 'package:my_resume_app/views/home_screen.dart';
 import 'package:my_resume_app/widgets/custom_text.dart';
@@ -84,7 +85,7 @@ class _OnboardScreenState extends State<OnboardScreen> {
                   MaterialPageRoute(
                     builder: (context) => const HomeScreen(),
                   )),
-              color: const Color(0xff79A7D3),
+              color: MyAppThemer.primaryColor(),
               height: isPortrait ? 71.h : 80.h,
               minWidth: isPortrait ? 288.w : 100.w,
               shape: RoundedRectangleBorder(

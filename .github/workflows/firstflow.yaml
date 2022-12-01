@@ -2,59 +2,68 @@ name: build_app
 on:
   push:
     branches:
-      - main
+    - main
 
 env:
-  MY_APP_NAME: Drippie
+  MY_APP_NAME: Hummer
+  PRIMARY_COLOR: '1737e8'
+  SECONDARY_COLOR: 7b88d1
+  TERTIARY COLOR: ffffff
 
+  TERTIARY_COLOR: 5c617d
 jobs:
-  build-apk: 
+  build-apk:
     runs-on: macos-latest
     steps:
-      - name: checkout code
-        uses: actions/checkout@v2
-      
-      - name: Setup java
-        uses: actions/setup-java@v1
-        with: 
-          java-version: 12.x
+    - name: checkout code
+      uses: actions/checkout@v2
 
-      - name: Get Flutter
-        uses: subosito/flutter-action@v2
-        with:
-          flutter-version: '3.3.7'
+    - name: Setup java
+      uses: actions/setup-java@v1
+      with:
+        java-version: 12.x
 
-      - name: Install Android gems
-        working-directory: ${{ github.workspace }}/android
-        run: bundle install
-      
-      - name: Install dependencies
-        working-directory: ${{ github.workspace }}
-        run: flutter pub get
-      
-      - name: Change our app ID
-        working-directory: ${{ github.workspace }}
-        run: flutter pub run change_app_package_name:main com.$MY_APP_NAME
+    - name: Get Flutter
+      uses: subosito/flutter-action@v2
+      with:
+        flutter-version: 3.3.7
 
-      - name: Build the app
-        working-directory: ${{ github.workspace }}
-        run: flutter build apk --dart-define=myAppName=$MY_APP_NAME
+    - name: Install Android gems
+      working-directory: ${{ github.workspace }}/android
+      run: bundle install
 
-      - name: Upload artifacts to Github
-        uses: actions/upload-artifact@v2
-        with:
-          name: final-apk
-          path: build/app/outputs/apk/release/app-release.apk
+    - name: Install dependencies
+      working-directory: ${{ github.workspace }}
+      run: flutter pub get
+
+    - name: Change our app ID
+      working-directory: ${{ github.workspace }}
+      run: flutter pub run change_app_package_name:main com.$MY_APP_NAME
+
+    - name: Change our app icon
+      working-directory: ${{ github.workspace }}
+      run: flutter pub run icons_launcher:create
+
+    - name: Build the app
+      working-directory: ${{ github.workspace }}
+      run: flutter build apk --dart-define=myAppName=$MY_APP_NAME --dart-define=Primary=$PRIMARY_COLOR
+        --dart-define=Secondary=$SECONDARY_COLOR --dart-define=Tertiary=$TERTIARY_COLOR
+
+    - name: Upload artifacts to Github
+      uses: actions/upload-artifact@v2
+      with:
+        name: final-apk
+        path: build/app/outputs/apk/release/app-release.apk
 
   get-artifacts:
     name: Download our apk
     runs-on: macos-latest
     needs: build-apk
     steps:
-      - name: Download artifacts
-        uses: actions/download-artifact@v3
-        with:
-          name: final-apk
-      
-      - name: Test Artifact download
-        run: ls -R
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        name: final-apk
+
+    - name: Test Artifact download
+      run: ls -R

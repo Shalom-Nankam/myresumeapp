@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:my_resume_app/models/app_themer.dart';
 import 'package:my_resume_app/providers/language_provider.dart';
 import 'package:my_resume_app/providers/theme_provider.dart';
 import 'package:provider/provider.dart';
@@ -24,7 +25,7 @@ class Footer extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 18.w, vertical: 10.h),
       height: isPortrait ? 100.h : 130.h,
       width: double.infinity.w,
-      color: const Color(0xff6883BC),
+      color: MyAppThemer.secondaryColor(),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
