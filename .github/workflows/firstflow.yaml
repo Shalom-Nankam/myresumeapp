@@ -5,12 +5,12 @@ on:
     - main
 
 env:
-  MY_APP_NAME: Hummer
-  PRIMARY_COLOR: '1737e8'
-  SECONDARY_COLOR: 7b88d1
+  MY_APP_NAME: CDLP
+  PRIMARY_COLOR: 2848fa
+  SECONDARY_COLOR: 5e72e0
   TERTIARY COLOR: ffffff
 
-  TERTIARY_COLOR: 5c617d
+  TERTIARY_COLOR: cccfde
 jobs:
   build-apk:
     runs-on: macos-latest
