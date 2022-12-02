@@ -5,10 +5,10 @@ on:
     - main
 
 env:
-  MY_APP_NAME: Hummer
-  PRIMARY_COLOR: 77e6ae
-  SECONDARY_COLOR: 16db78
-  TERTIARY_COLOR: 6a917e
+  MY_APP_NAME: Holla
+  PRIMARY_COLOR: f2d585
+  SECONDARY_COLOR: ebbc3d
+  TERTIARY_COLOR: '5e4606'
 
 
 jobs:
@@ -52,8 +52,8 @@ jobs:
     - name: Upload artifacts to Github
       uses: actions/upload-artifact@v2
       with:
-        name: final-apk
-        path: build/app/outputs/apk/release/app-release.apk
+        name: final-aab
+        path: build/app/outputs/bundle/release/app-release.aab
 
   get-artifacts:
     name: Download our apk
@@ -63,7 +63,7 @@ jobs:
     - name: Download artifacts
       uses: actions/download-artifact@v3
       with:
-        name: final-apk
+        name: final-aab
 
     - name: Test Artifact download
       run: ls -R
