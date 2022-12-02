@@ -5,15 +5,15 @@ on:
     - main
 
 env:
-  MY_APP_NAME: CDLP
-  PRIMARY_COLOR: 2848fa
-  SECONDARY_COLOR: 5e72e0
-  TERTIARY COLOR: ffffff
+  MY_APP_NAME: Summer
+  PRIMARY_COLOR: 9be0ad
+  SECONDARY_COLOR: 69ffb4
+  TERTIARY_COLOR: a2baae
 
-  TERTIARY_COLOR: cccfde
+
 jobs:
   build-apk:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
     - name: checkout code
       uses: actions/checkout@v2
@@ -46,7 +46,7 @@ jobs:
 
     - name: Build the app
       working-directory: ${{ github.workspace }}
-      run: flutter build apk --dart-define=myAppName=$MY_APP_NAME --dart-define=Primary=$PRIMARY_COLOR
+      run: flutter build aab --dart-define=myAppName=$MY_APP_NAME --dart-define=Primary=$PRIMARY_COLOR
         --dart-define=Secondary=$SECONDARY_COLOR --dart-define=Tertiary=$TERTIARY_COLOR
 
     - name: Upload artifacts to Github
@@ -55,15 +55,15 @@ jobs:
         name: final-apk
         path: build/app/outputs/apk/release/app-release.apk
 
-  get-artifacts:
-    name: Download our apk
-    runs-on: macos-latest
-    needs: build-apk
-    steps:
-    - name: Download artifacts
-      uses: actions/download-artifact@v3
-      with:
-        name: final-apk
+  # get-artifacts:
+  #   name: Download our apk
+  #   runs-on: macos-latest
+  #   needs: build-apk
+  #   steps:
+  #   - name: Download artifacts
+  #     uses: actions/download-artifact@v3
+  #     with:
+  #       name: final-apk
 
-    - name: Test Artifact download
-      run: ls -R
+  #   - name: Test Artifact download
+  #     run: ls -R
