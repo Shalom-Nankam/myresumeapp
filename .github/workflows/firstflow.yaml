@@ -5,10 +5,10 @@ on:
     - main
 
 env:
-  MY_APP_NAME: Sweep
-  PRIMARY_COLOR: b8d4c6
-  SECONDARY_COLOR: 6cebab
-  TERTIARY_COLOR: 0cc769
+  MY_APP_NAME: Reaper
+  PRIMARY_COLOR: abebcb
+  SECONDARY_COLOR: 54e89e
+  TERTIARY_COLOR: 158f52
 
 
 jobs:
@@ -46,7 +46,7 @@ jobs:
 
     - name: Build the app
       working-directory: ${{ github.workspace }}
-      run: flutter build aab --dart-define=myAppName=$MY_APP_NAME --dart-define=Primary=$PRIMARY_COLOR
+      run: flutter build appbundle --dart-define=myAppName=$MY_APP_NAME --dart-define=Primary=$PRIMARY_COLOR
         --dart-define=Secondary=$SECONDARY_COLOR --dart-define=Tertiary=$TERTIARY_COLOR
 
     - name: Upload artifacts to Github
