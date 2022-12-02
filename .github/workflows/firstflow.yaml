@@ -6,9 +6,9 @@ on:
 
 env:
   MY_APP_NAME: Sweep
-  PRIMARY_COLOR: a2baae
-  SECONDARY_COLOR: 0eeb7c
-  TERTIARY_COLOR: b8d4c6
+  PRIMARY_COLOR: b8d4c6
+  SECONDARY_COLOR: 6cebab
+  TERTIARY_COLOR: 0cc769
 
 
 jobs:
