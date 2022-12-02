@@ -5,10 +5,10 @@ on:
     - main
 
 env:
-  MY_APP_NAME: Summer
-  PRIMARY_COLOR: 9be0ad
-  SECONDARY_COLOR: 69ffb4
-  TERTIARY_COLOR: a2baae
+  MY_APP_NAME: Sweep
+  PRIMARY_COLOR: a2baae
+  SECONDARY_COLOR: 0eeb7c
+  TERTIARY_COLOR: b8d4c6
 
 
 jobs:
@@ -28,9 +28,9 @@ jobs:
       with:
         flutter-version: 3.3.7
 
-    - name: Install Android gems
-      working-directory: ${{ github.workspace }}/android
-      run: bundle install
+    # - name: Install Android gems
+    #   working-directory: ${{ github.workspace }}/android
+    #   run: bundle install
 
     - name: Install dependencies
       working-directory: ${{ github.workspace }}
