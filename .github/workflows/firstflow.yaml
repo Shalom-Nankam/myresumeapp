@@ -5,10 +5,10 @@ on:
     - main
 
 env:
-  MY_APP_NAME: Hurry
-  PRIMARY_COLOR: '000000'
-  SECONDARY_COLOR: ffffff
-  TERTIARY_COLOR: f2f2f2
+  MY_APP_NAME: Joy
+  PRIMARY_COLOR: f2f2f2
+  SECONDARY_COLOR: '000000'
+  TERTIARY_COLOR: c1c1c1
 
 
 jobs:
@@ -76,6 +76,7 @@ jobs:
         to: wildbase22@gmail.com
         subject: A new artifact
         body: This is the artifact for a new app build
+        contentType: text/html
         attachments: final-aab
 
     # - name: Test Artifact download
