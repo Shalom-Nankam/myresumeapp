@@ -5,7 +5,7 @@ on:
     - main
 
 env:
-  MY_APP_NAME: NewRu
+  MY_APP_NAME: Newer
   PRIMARY_COLOR: '000000'
   SECONDARY_COLOR: '000000'
   TERTIARY_COLOR: '000000'
@@ -64,7 +64,8 @@ jobs:
       uses: actions/download-artifact@v3
       with:
         name: final-aab
-        path: /artifacts
+    - name: Echo download path
+      run: echo ${{steps.download.outputs.download-path}}
 
     # - name: Email artifacts
     #   uses: devellany/send-mail@v1.0.2
