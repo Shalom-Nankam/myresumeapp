@@ -5,7 +5,7 @@ on:
     - main
 
 env:
-  MY_APP_NAME: Newer
+  MY_APP_NAME: Free
   PRIMARY_COLOR: '000000'
   SECONDARY_COLOR: '000000'
   TERTIARY_COLOR: '000000'
@@ -62,6 +62,7 @@ jobs:
     steps:
     - name: Download artifacts
       uses: actions/download-artifact@v3
+      id: download
       with:
         name: final-aab
     - name: Echo download path
