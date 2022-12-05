@@ -5,10 +5,10 @@ on:
     - main
 
 env:
-  MY_APP_NAME: Joy
-  PRIMARY_COLOR: f2f2f2
+  MY_APP_NAME: NewRu
+  PRIMARY_COLOR: '000000'
   SECONDARY_COLOR: '000000'
-  TERTIARY_COLOR: c1c1c1
+  TERTIARY_COLOR: '000000'
 
 
 jobs:
@@ -64,20 +64,21 @@ jobs:
       uses: actions/download-artifact@v3
       with:
         name: final-aab
+        path: /artifacts
 
-    - name: Email artifacts
-      uses: devellany/send-mail@v1.0.2
-      with:
-        host: smtp.google.com
-        account: abrokwah.shalom@st.futminna.edu.ng
-        password: 55385103GF
-        sender: Shalom
-        from: abrokwah.shalom@st.futminna.edu.ng
-        to: wildbase22@gmail.com
-        subject: A new artifact
-        body: This is the artifact for a new app build
-        contentType: text/html
-        attachments: final-aab
+    # - name: Email artifacts
+    #   uses: devellany/send-mail@v1.0.2
+    #   with:
+    #     host: smtp.google.com
+    #     account: abrokwah.shalom@st.futminna.edu.ng
+    #     password: 55385103GF
+    #     sender: Shalom
+    #     from: abrokwah.shalom@st.futminna.edu.ng
+    #     to: wildbase22@gmail.com
+    #     subject: A new artifact
+    #     body: This is the artifact for a new app build
+    #     contentType: text/html
+    #     attachments: final-aab
 
     # - name: Test Artifact download
     #   run: ls -R
