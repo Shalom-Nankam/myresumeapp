@@ -5,7 +5,7 @@ on:
     - main
 
 env:
-  MY_APP_NAME: hummer
+  MY_APP_NAME: Free
   PRIMARY_COLOR: '000000'
   SECONDARY_COLOR: '000000'
   TERTIARY_COLOR: '000000'
@@ -19,12 +19,13 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Setup java
-      uses: actions/setup-java@v1
+      uses: actions/setup-java@v2
       with:
         java-version: 12.x
+        distribution: AdoptOpenJDK
 
     - name: Get Flutter
-      uses: subosito/flutter-action@v2
+      uses: subosito/flutter-action@v2.8.0
       with:
         flutter-version: 3.3.7
 
@@ -50,7 +51,7 @@ jobs:
         --dart-define=Secondary=$SECONDARY_COLOR --dart-define=Tertiary=$TERTIARY_COLOR
 
     - name: Upload artifacts to Github
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: final-aab
         path: build/app/outputs/bundle/release/app-release.aab
