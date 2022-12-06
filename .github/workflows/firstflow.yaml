@@ -22,7 +22,7 @@ jobs:
       uses: actions/setup-java@v2
       with:
         java-version: 12.x
-        distribution: Azul Zulu OpenJDK
+        distribution: zulu
 
     - name: Get Flutter
       uses: subosito/flutter-action@v2.8.0
