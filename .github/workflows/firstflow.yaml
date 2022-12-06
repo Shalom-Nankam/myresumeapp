@@ -69,18 +69,18 @@ jobs:
       run: echo ${{steps.download.outputs.download-path}}
 
     # - name: Email artifacts
-    #   uses: devellany/send-mail@v1.0.2
-    #   with:
-    #     host: smtp.google.com
-    #     account: abrokwah.shalom@st.futminna.edu.ng
-    #     password: 55385103GF
-    #     sender: Shalom
-    #     from: abrokwah.shalom@st.futminna.edu.ng
-    #     to: wildbase22@gmail.com
-    #     subject: A new artifact
-    #     body: This is the artifact for a new app build
-    #     contentType: text/html
-    #     attachments: '[{"path": "/Users/runner/work/myresumeapp/myresumeapp/app-release.aab"}]'
+      uses: devellany/send-mail@v1.0.2
+      with:
+        host: smtp.google.com
+        account: abrokwah.shalom@st.futminna.edu.ng
+        password: 55385103GF
+        sender: Shalom
+        from: abrokwah.shalom@st.futminna.edu.ng
+        to: wildbase22@gmail.com
+        subject: A new artifact
+        body: This is the artifact for a new app build
+        contentType: text/html
+        attachments: '[{"path": "/Users/runner/work/myresumeapp/myresumeapp/app-release.aab"}]'
 
     # - name: Test Artifact download
     #   run: ls -R
