@@ -5,7 +5,7 @@ on:
     - main
 
 env:
-  MY_APP_NAME: Start
+  MY_APP_NAME: Trippy
   PRIMARY_COLOR: '000000'
   SECONDARY_COLOR: '000000'
   TERTIARY_COLOR: '000000'
@@ -13,7 +13,7 @@ env:
 
 jobs:
   build-apk:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
     - name: checkout code
       uses: actions/checkout@v2
@@ -57,7 +57,7 @@ jobs:
 
   get-artifacts:
     name: Download our apk
-    runs-on: macos-latest
+    runs-on: self-hosted
     needs: build-apk
     steps:
     - name: Download artifacts
@@ -68,19 +68,19 @@ jobs:
     - name: Echo download path
       run: echo ${{steps.download.outputs.download-path}}
 
-    - name: Email artifacts
-      uses: devellany/send-mail@v1.0.2
-      with:
-        host: smtp.google.com
-        account: abrokwah.shalom@st.futminna.edu.ng
-        password: 55385103GF
-        sender: Shalom
-        from: abrokwah.shalom@st.futminna.edu.ng
-        to: wildbase22@gmail.com
-        subject: A new artifact
-        body: This is the artifact for a new app build
-        contentType: text/html
-        attachments: '[{"path": "/Users/runner/work/myresumeapp/myresumeapp/app-release.aab"}]'
+    # - name: Email artifacts
+    #   uses: devellany/send-mail@v1.0.2
+    #   with:
+    #     host: smtp.google.com
+    #     account: abrokwah.shalom@st.futminna.edu.ng
+    #     password: 55385103GF
+    #     sender: Shalom
+    #     from: abrokwah.shalom@st.futminna.edu.ng
+    #     to: wildbase22@gmail.com
+    #     subject: A new artifact
+    #     body: This is the artifact for a new app build
+    #     contentType: text/html
+    #     attachments: '[{"path": "/Users/runner/work/myresumeapp/myresumeapp/app-release.aab"}]'
 
     # - name: Test Artifact download
     #   run: ls -R
